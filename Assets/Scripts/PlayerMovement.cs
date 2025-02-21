@@ -12,14 +12,14 @@ public class PlayerController : MonoBehaviour
 
     public bool isGrounded = false;
 
-    private Vector2 boxColliderOffset;
-    private Vector2 boxColliderFlippedOffset;
+    public Vector2 boxColliderOffset;
+    public Vector2 boxColliderFlippedOffset;
 
     //component references
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
-    private BoxCollider2D bc;
+    //private BoxCollider2D bc;
     private GroundCheck gndChk;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,11 +28,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        bc = GetComponent<BoxCollider2D>();
+        //bc = GetComponent<BoxCollider2D>();
         gndChk = GetComponent<GroundCheck>();
 
-        boxColliderOffset = bc.offset;
-        boxColliderFlippedOffset = new Vector2(-boxColliderOffset.x, boxColliderOffset.y);
+        //boxColliderOffset = bc.offset;
+        //boxColliderFlippedOffset = new Vector2(-boxColliderOffset.x, boxColliderOffset.y);
 
         if (jumpForce < 0) jumpForce = 5.0f;
     }
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (hInput != 0) sr.flipX = (hInput < 0);
         //if (hInput > 0 && sr.flipX || hInput < 0 && !sr.flipX) sr.flipX = !sr.flipX; //most efficient way to write this, but more verbose
 
-        bc.offset = (sr.flipX) ? boxColliderFlippedOffset : boxColliderOffset;
+        //bc.offset = (sr.flipX) ? boxColliderFlippedOffset : boxColliderOffset;
 
         anim.SetBool("isGroundedAnim", isGrounded);
         anim.SetFloat("speed", Mathf.Abs(hInput));
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isGrounded)
         {
-            if (rb.linearVelocity.y <= 0) isGrounded = gndChk.isGrounded();
+            if (rb.linearVelocity.y <= 0.01) isGrounded = gndChk.isGrounded();
         }
         else isGrounded = gndChk.isGrounded();
     }
