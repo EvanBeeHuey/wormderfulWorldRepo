@@ -22,6 +22,14 @@ public class PlayerController : MonoBehaviour
     //private BoxCollider2D bc;
     private GroundCheck gndChk;
 
+    //score
+    private int _score = 0;
+    public int Score
+    {
+        get => _score;
+        set => _score = value;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -70,5 +78,17 @@ public class PlayerController : MonoBehaviour
             if (rb.linearVelocity.y <= 0.01) isGrounded = gndChk.isGrounded();
         }
         else isGrounded = gndChk.isGrounded();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Pickup pickup = collision.gameObject.GetComponent<Pickup>();
+        if (pickup != null) pickup.Pickup(this);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Pickup pickup = collision.GetComponent<Pickup>();
+        if (pickup != null) pickup.Pickup(this);
     }
 }
