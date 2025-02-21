@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         rb.linearVelocity = new Vector3(hInput * speed, rb.linearVelocity.y, 0);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
         //sprite flipping
@@ -57,6 +57,10 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("isGroundedAnim", isGrounded);
         anim.SetFloat("speed", Mathf.Abs(hInput));
+        anim.SetBool("isFalling", rb.linearVelocity.y < 0.1f);
+        
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            anim.SetTrigger("crouchActive");
     }
 
     void CheckIsGrounded()
