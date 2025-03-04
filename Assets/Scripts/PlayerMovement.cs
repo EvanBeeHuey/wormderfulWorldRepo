@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     //private BoxCollider2D bc;
     private GroundCheck gndChk;
 
+    //worm projectile
+    public ProjectileBehaviour ProjectilePrefab;
+    public Transform LaunchOffset;
+
     //score
     private int _score = 0;
     public int Score
@@ -69,6 +73,12 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             anim.SetTrigger("crouchActive");
+
+        //worm projectile
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+        }
     }
 
     void CheckIsGrounded()
