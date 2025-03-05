@@ -70,24 +70,30 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isGroundedAnim", isGrounded);
         anim.SetFloat("speed", Mathf.Abs(hInput));
         anim.SetBool("isFalling", rb.linearVelocity.y < 0.1f);
-        
+
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             anim.SetTrigger("crouchActive");
 
         //worm projectile
+        //if (Input.GetKeyDown(KeyCode.LeftAlt))
+        //{
+        //    Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+        //}
+
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+            ProjectileBehaviour newProjectile = Instantiate(ProjectilePrefab, LaunchOffset.position, LaunchOffset.rotation);
+            //newProjectile.direction = sr.flipX ? -1 : 1; // -1 if flipped (left), 1 if not flipped (right) }
         }
-    }
 
-    void CheckIsGrounded()
-    {
-        if (!isGrounded)
+        void CheckIsGrounded()
         {
-            if (rb.linearVelocity.y <= 0.01) isGrounded = gndChk.isGrounded();
+            if (!isGrounded)
+            {
+                if (rb.linearVelocity.y <= 0.01) isGrounded = gndChk.isGrounded();
+            }
+            else isGrounded = gndChk.isGrounded();
         }
-        else isGrounded = gndChk.isGrounded();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
