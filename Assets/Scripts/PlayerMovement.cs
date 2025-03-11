@@ -82,16 +82,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             anim.SetTrigger("crouchActive");
 
-        //worm projectile
-        //if (Input.GetKeyDown(KeyCode.LeftAlt))
-        //{
-        //    Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
-        //}
-
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            ProjectileBehaviour newProjectile = Instantiate(ProjectilePrefab, LaunchOffset.position, LaunchOffset.rotation);
-            //newProjectile.direction = sr.flipX ? -1 : 1; // -1 if flipped (left), 1 if not flipped (right) }
+            anim.SetTrigger("Fire");
         }
 
         void CheckIsGrounded()
