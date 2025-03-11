@@ -34,6 +34,15 @@ public class PlayerController : MonoBehaviour
         set => _score = value;
     }
 
+    //life
+    private int _life = 5;
+
+    public int Life
+    {
+        get => _life;
+        set => _life = value;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
