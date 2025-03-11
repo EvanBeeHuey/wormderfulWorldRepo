@@ -9,16 +9,17 @@ public class ProjectileBehaviour : MonoBehaviour
     //public int direction = 1;
     private Rigidbody2D m_Rigidbody;
 
-    //private void Update()
-    //{
-    //    transform.position += new Vector3(direction, 0, 0) * projSpeed * Time.deltaTime;
-    //}
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Rigidbody.AddForce(m_Rigidbody.transform.forward * projSpeed);
         Destroy(gameObject, lifespan);
     }
+
+    //private void Update()
+    //{
+    //    transform.position += -transform.right * Time.deltaTime * projSpeed;
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

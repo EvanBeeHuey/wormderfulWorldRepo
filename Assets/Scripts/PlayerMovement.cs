@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
     //life
     private int _life = 5;
-
     public int Life
     {
         get => _life;
