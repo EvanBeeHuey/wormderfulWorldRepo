@@ -22,14 +22,12 @@ public class Life : MonoBehaviour, Pickup
     }
     public void Pickup(PlayerController player)
     {
-        if (player.Life <= 4)
+        if (GameManager.Instance.Life <= 4)
         {
-            player.Life += addLife;
+            GameManager.Instance.Life++;
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

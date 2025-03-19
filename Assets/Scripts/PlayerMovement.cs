@@ -26,22 +26,6 @@ public class PlayerController : MonoBehaviour
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
 
-    //score
-    private int _score = 0;
-    public int Score
-    {
-        get => _score;
-        set => _score = value;
-    }
-
-    //life
-    private int _life = 5;
-    public int Life
-    {
-        get => _life;
-        set => _life = value;
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

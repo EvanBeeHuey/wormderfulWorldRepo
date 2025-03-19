@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour, Pickup
 
     public void Pickup(PlayerController player)
     {
-        player.Score += addScore;
+        //player.Score += addScore;
         Destroy(gameObject);
     }
 }

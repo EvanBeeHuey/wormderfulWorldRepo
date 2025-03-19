@@ -1,3 +1,6 @@
+//this is the score pickup script, it was named gem because the gem sprite was the placeholder
+// for the pickup item
+
 using UnityEditor;
 using UnityEngine;
 
@@ -22,7 +25,7 @@ public class Gem : MonoBehaviour, Pickup
     }
     public void Pickup(PlayerController player)
     {
-        player.Score += addScore;
+        GameManager.Instance.Score++;
         Destroy(gameObject);
     }
 }
