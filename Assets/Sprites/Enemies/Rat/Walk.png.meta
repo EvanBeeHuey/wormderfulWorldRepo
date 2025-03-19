@@ -125,12 +125,12 @@ TextureImporter:
       name: Walk_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 27
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: Walk_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 0
-        width: 27
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: Walk_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 65
         y: 0
-        width: 27
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: Walk_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 97
         y: 0
-        width: 27
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d254c8ffc0248644a8c809ce042b3615
     internalID: 0
     vertices: []
     indices: 
