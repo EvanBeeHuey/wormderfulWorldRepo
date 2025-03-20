@@ -1,5 +1,8 @@
 using TMPro;
 using UnityEngine;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Collections;
+using UnityEditor;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(Animator))] //can only put 3 typeof in one line, start another line of RequireComponent if there is 4+
 [RequireComponent(typeof(GroundCheck))]
@@ -19,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
-    //private BoxCollider2D bc;
+    private BoxCollider2D bc;
     private GroundCheck gndChk;
 
     //worm projectile
@@ -55,8 +58,7 @@ public class PlayerController : MonoBehaviour
 
         //sprite flipping
         if (hInput != 0) sr.flipX = (hInput < 0);
-        //if (hInput > 0 && sr.flipX || hInput < 0 && !sr.flipX) sr.flipX = !sr.flipX; //most efficient way to write this, but more verbose
-
+        
         //bc.offset = (sr.flipX) ? boxColliderFlippedOffset : boxColliderOffset;
 
         anim.SetBool("isGroundedAnim", isGrounded);
@@ -81,15 +83,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ResetRigidbody() => rb.bodyType = RigidbodyType2D.Dynamic;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //detect a pickup
         Pickup pickup = collision.gameObject.GetComponent<Pickup>();
         if (pickup != null) pickup.Pickup(this);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        Pickup pickup = collision.GetComponent<Pickup>();
+        //detect a pickup
+        Pickup pickup = collision.gameObject.GetComponent<Pickup>();
         if (pickup != null) pickup.Pickup(this);
+
+        //jump damage to enemies
+        if ((rb.linearVelocityY < 0) && collision.transform.CompareTag("Squish"))
+        {
+            collision.enabled = false;
+            collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(9999, DamageType.JumpedOn);
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+
     }
 }

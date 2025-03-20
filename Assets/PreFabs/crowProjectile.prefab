@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2129286151163069590}
   m_Layer: 0
   m_Name: crowProjectile
-  m_TagString: Untagged
+  m_TagString: eProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,3 +223,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 3
+  damage: 20

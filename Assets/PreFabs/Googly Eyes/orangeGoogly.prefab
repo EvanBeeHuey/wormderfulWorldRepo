@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4549063321783794947}
   - component: {fileID: 4140292297686495615}
-  - component: {fileID: -7520674775826586187}
   - component: {fileID: -5614846470404784288}
+  - component: {fileID: 3687269239772247198}
   m_Layer: 0
   m_Name: orangeGoogly
   m_TagString: Untagged
@@ -89,21 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7520674775826586187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8605999524289534432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f9620bd6be9304c9f47bb41c7c7a51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addScore: 1
-  bobSpeed: 2
-  bobAmount: 0.2
 --- !u!58 &-5614846470404784288
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,3 +125,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.19444445
+--- !u!114 &3687269239772247198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8605999524289534432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0985c6384102e694eb8f32d78024fb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobSpeed: 2
+  bobAmount: 0.2

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -9035082857129019684}
   m_Layer: 0
   m_Name: wormProjectile
-  m_TagString: Untagged
+  m_TagString: pProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 3
+  damage: 20
 --- !u!58 &-9035082857129019684
 CircleCollider2D:
   m_ObjectHideFlags: 0

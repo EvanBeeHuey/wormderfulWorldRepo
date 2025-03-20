@@ -1,36 +1,66 @@
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
     public static GameManager Instance => _instance;
+    public event Action<PlayerController> OnPlayerSpawned;
+    public event Action<int> OnLifeValueChanged;
 
-    //score
+    #region GAME PROPERTIES
+    [SerializeField] private int maxLives = 10;
+    private int _lives = 5;
+
+    public int lives
+    {
+        get => _lives;
+        set
+        {
+            if (value < 0)
+            {
+                GameOver();
+                return;
+            }
+
+            if (_lives > value) Respawn();
+
+            _lives = value;
+
+            if (_lives > maxLives) _lives = maxLives;
+
+            OnLifeValueChanged?.Invoke(_lives);
+
+            Debug.Log($"{gameObject.name} lives has changed to {_lives}");
+        }
+    }
+
     private int _score = 0;
-    public int Score
+
+    public int score
     {
         get => _score;
         set
         {
             _score = value;
-            Debug.Log($"Score has changed to {_score}");
+            Debug.Log($"{gameObject.name} score has changed to {+score}");
         }
     }
+    #endregion
 
-    //life
-    private int _life = 5;
-    public int Life
-    {
-        get => _life;
-        set
-        {
-            _life = value;
-            Debug.Log($"Life has changed to {_life}");
-        }
-    }
+    #region PLAYER CONTROLLER INFO
+    [SerializeField] private PlayerController playerPrefab;
+    private PlayerController _playerInstance;
+    public PlayerController PlayerInstance => _playerInstance;
+    #endregion
+
+    private MenuController currentMenuController;
+    private Transform currentCheckpoint;
+
+    public void SetMenuController(MenuController newMenuController) => currentMenuController = newMenuController;
 
     //singleton instance, i think?
     void Awake()
@@ -45,6 +75,12 @@ public class GameManager : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        if (maxLives <= 0) maxLives = 5;
+        _lives = maxLives;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -53,13 +89,39 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            Score++;
+        if (SceneManager.GetActiveScene().name.Contains("SewerLevel"))
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                if (currentMenuController.CurrentState.state == MenuStates.InGame)
+                    currentMenuController.SetActiveState(MenuStates.Pause);
+                else
+                    currentMenuController.JumpBack();
+            }
+        }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            Life++;
+    void GameOver()
+    {
+        Debug.Log("Game Over goes here");
+    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            Life--;
+    void Respawn()
+    {
+        //todo: animation before position change ?
+        _playerInstance.transform.position = currentCheckpoint.position;
+    }
+
+    public void InstantiatePlayer(Transform spawnLocation)
+    {
+        _playerInstance = Instatiate(playerPrefab, spawnLocation.position, Quaternion.identity);
+        currentCheckpoint = spawnLocation;
+        OnPlayerSpawned?.Invoke(_playerInstance);
+    }
+
+    public void UpdateCheckpoint(Transform updatedCheckpoint)
+    {
+        currentCheckpoint = updatedCheckpoint;
+        Debug.Log("Checkpoint updated");
     }
 }

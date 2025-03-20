@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1156095620990076552}
   - component: {fileID: 7199619014638590162}
-  - component: {fileID: 7506773347999577232}
   - component: {fileID: -6349142622808229381}
+  - component: {fileID: -5257584440339973706}
   m_Layer: 0
   m_Name: blackGoogly
   m_TagString: Untagged
@@ -89,21 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7506773347999577232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8733246583758571783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f9620bd6be9304c9f47bb41c7c7a51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addScore: 1
-  bobSpeed: 2
-  bobAmount: 0.2
 --- !u!58 &-6349142622808229381
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,3 +125,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.19444445
+--- !u!114 &-5257584440339973706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733246583758571783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0985c6384102e694eb8f32d78024fb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobSpeed: 2
+  bobAmount: 0.2

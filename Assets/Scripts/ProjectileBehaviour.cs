@@ -3,10 +3,9 @@ using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class ProjectileBehaviour : MonoBehaviour
 {
-    public float lifespan = 3.0f;
-    
+    [SerializeField, Range(1, 20)] private float lifespan = 3.0f;
+    [SerializeField, Range(1, 20)] private int damage = 20;
 
-    //public int direction = 1;
     private Rigidbody2D m_Rigidbody;
 
     private void Start()
@@ -21,6 +20,21 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (gameObject.CompareTag("pProjectile"))
+        {
+            Enemy e = collision.gameObject.GetComponent<Enemy>();
+            if (e != null)
+            {
+                e.TakeDamage(damage);
+                Destroy(gameObject);
+            }
+        }
+
+        if (gameObject.CompareTag("eProjectile") && collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.Life--;
+            Destroy(gameObject);
+        }
+    
     }
 }
