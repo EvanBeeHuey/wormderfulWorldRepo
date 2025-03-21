@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnLifeValueChanged;
 
     #region GAME PROPERTIES
+    //lives
     [SerializeField] private int maxLives = 10;
     private int _lives = 5;
-
     public int lives
     {
         get => _lives;
@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //score
     private int _score = 0;
-
     public int score
     {
         get => _score;
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     public void InstantiatePlayer(Transform spawnLocation)
     {
-        _playerInstance = Instatiate(playerPrefab, spawnLocation.position, Quaternion.identity);
+        _playerInstance = Instantiate(playerPrefab, spawnLocation.position, Quaternion.identity);
         currentCheckpoint = spawnLocation;
         OnPlayerSpawned?.Invoke(_playerInstance);
     }

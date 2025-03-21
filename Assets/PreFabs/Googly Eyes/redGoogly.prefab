@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1093065410964925056}
   - component: {fileID: -7641112278000737887}
   - component: {fileID: 4305807247760747825}
+  - component: {fileID: -5845411735045682057}
+  - component: {fileID: 1817970059297142519}
   m_Layer: 0
   m_Name: redGoogly
   m_TagString: Untagged
@@ -119,7 +121,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -139,3 +141,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobSpeed: 2
   bobAmount: 0.2
+--- !u!114 &-5845411735045682057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762672372451050228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be3d64f151bdc145be7417c2aeb4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 1
+--- !u!114 &1817970059297142519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762672372451050228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43410d07276d924a9b6435adee4689f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2

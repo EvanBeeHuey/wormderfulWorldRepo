@@ -32,7 +32,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
         if (gameObject.CompareTag("eProjectile") && collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.Life--;
+            GameManager.Instance.lives--;
             Destroy(gameObject);
         }
     

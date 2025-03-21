@@ -2161,6 +2161,7 @@ GameObject:
   - component: {fileID: 517024462}
   - component: {fileID: 517024461}
   - component: {fileID: 517024460}
+  - component: {fileID: 517024464}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2254,6 +2255,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &517024464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517024459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82e8e037823729498b9c5ecfe6fdb65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  startBtn: {fileID: 1485389466}
+  settingsBtn: {fileID: 71408191}
+  creditsBtn: {fileID: 1155733349}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70af752513ffe6e4aad71cab2c9d962c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLives: 10
+  playerPrefab: {fileID: 0}
 --- !u!4 &817389406
 Transform:
   m_ObjectHideFlags: 0
@@ -2991,11 +3010,14 @@ MonoBehaviour:
   startBtn: {fileID: 1485389466}
   settingsBtn: {fileID: 71408191}
   backBtn: {fileID: 1275764528}
+  resumeBtn: {fileID: 0}
+  mainMenuBtn: {fileID: 0}
   creditsBtn: {fileID: 0}
   quitBtn: {fileID: 0}
   mainMenu: {fileID: 517024459}
   settingsMenu: {fileID: 2062407306}
   creditsMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
   volSliderText: {fileID: 1509390771}
   livesText: {fileID: 0}
   volSlider: {fileID: 830222241}
@@ -3132,6 +3154,7 @@ GameObject:
   - component: {fileID: 1170494760}
   - component: {fileID: 1170494759}
   - component: {fileID: 1170494758}
+  - component: {fileID: 1170494761}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -3224,6 +3247,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1170494761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170494756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ff828d55d21674aa133e18c2ebaeac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  quitBtn: {fileID: 59176089}
+  resumeBtn: {fileID: 1710284451}
+  mainMenuBtn: {fileID: 1399963600}
 --- !u!1 &1220925363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6106,6 +6145,7 @@ GameObject:
   - component: {fileID: 2143625271}
   - component: {fileID: 2143625270}
   - component: {fileID: 2143625269}
+  - component: {fileID: 2143625272}
   m_Layer: 5
   m_Name: InGame
   m_TagString: Untagged
@@ -6196,6 +6236,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2143625272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143625267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2628c7d641835014db4f55a4907e6acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  livesText: {fileID: 462753183}
 --- !u!1001 &215714586910852440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6433,5 +6487,5 @@ SceneRoots:
   - {fileID: 817389406}
   - {fileID: 2073753649}
   - {fileID: 2001361403}
-  - {fileID: 516602687}
   - {fileID: 1089574822}
+  - {fileID: 516602687}

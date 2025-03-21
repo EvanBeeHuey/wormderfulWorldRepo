@@ -24,6 +24,6 @@ public class BaseMenu : MonoBehaviour
         #endif
     }
 
-    public void JumpBack() => context.Jumpback();
+    public void JumpBack() => context.JumpBack();
     public void SetNextMenu(MenuStates newState) => context.SetActiveState(newState);
 }

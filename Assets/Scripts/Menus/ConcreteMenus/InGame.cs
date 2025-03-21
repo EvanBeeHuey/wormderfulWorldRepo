@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class InGame : BaseMenu
 {
-    public TMP_Text livessText;
+    public TMP_Text livesText;
 
     public override void Init(MenuController context)
     {
         base.Init(context);
         state = MenuStates.InGame;
 
-        livessText.text = $"Lives: {GameManager.Instance.lives}";
+        livesText.text = $"Lives: {GameManager.Instance.lives}";
 
         GameManager.Instance.OnLifeValueChanged += LifeValueChanged;
     }

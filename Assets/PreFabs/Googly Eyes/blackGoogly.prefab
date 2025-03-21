@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7199619014638590162}
   - component: {fileID: -6349142622808229381}
   - component: {fileID: -5257584440339973706}
+  - component: {fileID: 5135687448718295639}
+  - component: {fileID: 6128800079096670883}
   m_Layer: 0
   m_Name: blackGoogly
   m_TagString: Untagged
@@ -119,7 +121,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -139,3 +141,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobSpeed: 2
   bobAmount: 0.2
+--- !u!114 &5135687448718295639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733246583758571783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be3d64f151bdc145be7417c2aeb4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 1
+--- !u!114 &6128800079096670883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733246583758571783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43410d07276d924a9b6435adee4689f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
