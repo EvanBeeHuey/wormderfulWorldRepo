@@ -109,8 +109,15 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
         }
-    }
 
+        //falling in the water
+        if (gameObject.CompareTag("DeathBox") && collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.lives--;
+            Debug.Log("Player fell in water");
+            Destroy(gameObject);
+        }
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
         
