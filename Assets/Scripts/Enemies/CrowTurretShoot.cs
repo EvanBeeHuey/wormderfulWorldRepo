@@ -49,7 +49,7 @@ public class CrowTurretShoot : Enemy
         if (distance <= radar)
         {
             sr.color = Color.red;
-            if (curClip.clip.name.Contains("Idle")) CheckFire();
+            if (curClip.clip.name.Contains("CrowIdle")) CheckFire();
         }
         else
             sr.color = Color.white;

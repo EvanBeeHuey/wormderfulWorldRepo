@@ -30,7 +30,7 @@ public class PatrolEnemy : Enemy
     void Update()
     {
         AnimatorClipInfo[] curPlayingClips = anim.GetCurrentAnimatorClipInfo(0);
-        if (curPlayingClips[0].clip.name.Contains("RatWalk"))
+        if (curPlayingClips[0].clip.name.Contains("RatWalk") || curPlayingClips[0].clip.name.Contains("BirdFly"))
             rb.linearVelocity = (sr.flipX) ? new Vector2(-xVel, rb.linearVelocityY) : new Vector2(xVel, rb.linearVelocityY);
     }
 

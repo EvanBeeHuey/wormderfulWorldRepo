@@ -16,34 +16,51 @@ public class CanvasManager : MonoBehaviour
     public Button mainMenuBtn;
     public Button creditsBtn;
     public Button quitBtn;
+    public Button credsBackBtn;
 
     [Header("Menus")]
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject creditsMenu;
     public GameObject pauseMenu;
+    public GameObject inGameMenu;
 
     [Header("Text")]
     public TMP_Text volSliderText;
     public TMP_Text livesText;
+    public TMP_Text collectText;
 
     [Header("Slider")]
-    public Slider volSlider;
+    public Slider volSlider; //master volume
+    public Slider musicSlider; //music volume
+    public Slider soundSlider; //sound effect volume
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (startBtn) startBtn.onClick.AddListener(StartGame);
         if (settingsBtn) settingsBtn.onClick.AddListener(() => SetMenus(settingsMenu, mainMenu));
         if (backBtn) backBtn.onClick.AddListener(() => SetMenus(mainMenu, settingsMenu));
+        if (credsBackBtn) credsBackBtn.onClick.AddListener(() => SetMenus(mainMenu, creditsMenu));
         if (quitBtn) quitBtn.onClick.AddListener(QuitGame);
         if (resumeBtn) resumeBtn.onClick.AddListener(() => SetMenus(null, pauseMenu));
+        if (creditsBtn) creditsBtn.onClick.AddListener(() => SetMenus(creditsMenu, mainMenu));
         if (mainMenuBtn) mainMenuBtn.onClick.AddListener(() => SceneManager.LoadScene("TitleScreen"));
 
+        //volume sliders
         if(volSlider)
         {
             volSlider.onValueChanged.AddListener(OnSliderValueChanged);
             OnSliderValueChanged(volSlider.value);
+        }
+        if(musicSlider)
+        {
+            musicSlider.onValueChanged.AddListener(OnSliderValueChanged);
+            OnSliderValueChanged(musicSlider.value);
+        }
+        if(soundSlider)
+        {
+            soundSlider.onValueChanged.AddListener(OnSliderValueChanged);
+            OnSliderValueChanged(soundSlider.value);
         }
 
         if (livesText)
@@ -66,6 +83,7 @@ public class CanvasManager : MonoBehaviour
         if (startBtn) startBtn.onClick.RemoveAllListeners();
         if (settingsBtn) settingsBtn.onClick.RemoveAllListeners();
         if (backBtn) backBtn.onClick.RemoveAllListeners();
+        if (credsBackBtn) credsBackBtn.onClick.RemoveAllListeners();
         if (quitBtn) quitBtn.onClick.RemoveAllListeners();
         if (resumeBtn) resumeBtn.onClick.RemoveAllListeners();
         if (mainMenuBtn) mainMenuBtn.onClick.RemoveAllListeners();
@@ -89,7 +107,6 @@ public class CanvasManager : MonoBehaviour
     }
     private void StartGame() => SceneManager.LoadScene("SewerLevel");
 
-    // Update is called once per frame
     void Update()
     {
         if (!pauseMenu) return;
@@ -100,11 +117,11 @@ public class CanvasManager : MonoBehaviour
 
             if (pauseMenu.activeSelf)
             {
-                //do something - hint for lab
+                SceneManager.LoadScene("PauseMenu");
             }
             else
             {
-                //do something else
+                SceneManager.LoadScene("InGame");
             }    
         }
     }

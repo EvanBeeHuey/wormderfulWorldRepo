@@ -35,11 +35,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        //bc = GetComponent<BoxCollider2D>();
         gndChk = GetComponent<GroundCheck>();
-
-        //boxColliderOffset = bc.offset;
-        //boxColliderFlippedOffset = new Vector2(-boxColliderOffset.x, boxColliderOffset.y);
 
         if (jumpForce < 0) jumpForce = 5.0f;
     }
@@ -58,8 +54,6 @@ public class PlayerController : MonoBehaviour
 
         //sprite flipping
         if (hInput != 0) sr.flipX = (hInput < 0);
-        
-        //bc.offset = (sr.flipX) ? boxColliderFlippedOffset : boxColliderOffset;
 
         anim.SetBool("isGroundedAnim", isGrounded);
         anim.SetFloat("speed", Mathf.Abs(hInput));

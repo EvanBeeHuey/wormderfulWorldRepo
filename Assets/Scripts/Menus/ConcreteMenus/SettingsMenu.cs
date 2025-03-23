@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SettingsMenu : BaseMenu
 {
-    public Button creditsBtn;
     public Button backBtn;
 
     public Slider volSlider;
@@ -17,7 +16,6 @@ public class SettingsMenu : BaseMenu
         state = MenuStates.Settings;
 
         if (backBtn) backBtn.onClick.AddListener(JumpBack);
-        if (creditsBtn) creditsBtn.onClick.AddListener(() => SetNextMenu(MenuStates.Credits));
 
         if (volSlider)
         {

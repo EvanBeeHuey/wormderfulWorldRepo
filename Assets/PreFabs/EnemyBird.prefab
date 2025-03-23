@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2634075318288958481}
   - component: {fileID: 7519538829301343657}
   - component: {fileID: 5730915670923909638}
+  - component: {fileID: 4066166986276257726}
   m_Layer: 0
   m_Name: EnemyBird
   m_TagString: Untagged
@@ -162,7 +163,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!95 &5730915670923909638
 Animator:
   serializedVersion: 7
@@ -185,3 +186,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4066166986276257726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575365792402825256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de7d15d2c23e0c4684c82e618e7ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  xVel: 0
