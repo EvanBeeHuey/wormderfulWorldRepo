@@ -28,7 +28,7 @@ public abstract class Enemy : MonoBehaviour
             anim.SetTrigger("Death");
 
             if (transform.parent != null) Destroy(transform.parent.gameObject, 0.5f);
-            else Destroy(gameObject, 0.5f);
+            else Destroy(gameObject, 0.8f);
         }
     }
 }

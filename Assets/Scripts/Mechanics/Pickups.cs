@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class Pickups : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class Pickups : MonoBehaviour
                     GameManager.Instance.score++;
                     break;
             }
-
             Destroy(gameObject);
         }
     }

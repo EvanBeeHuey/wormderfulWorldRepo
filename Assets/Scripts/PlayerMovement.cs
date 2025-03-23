@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
 
+    //Audio clips
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +40,7 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         gndChk = GetComponent<GroundCheck>();
+        audioSource = GetComponent<AudioSource>();
 
         if (jumpForce < 0) jumpForce = 5.0f;
     }
@@ -65,6 +70,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             anim.SetTrigger("Fire");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            audioSource.PlayOneShot(jumpSound);
         }
 
         void CheckIsGrounded()

@@ -27,8 +27,6 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Text")]
     public TMP_Text volSliderText;
-    public TMP_Text livesText;
-    public TMP_Text collectText;
 
     [Header("Slider")]
     public Slider volSlider; //master volume
@@ -62,15 +60,7 @@ public class CanvasManager : MonoBehaviour
             soundSlider.onValueChanged.AddListener(OnSliderValueChanged);
             OnSliderValueChanged(soundSlider.value);
         }
-
-        if (livesText)
-        {
-            GameManager.Instance.OnLifeValueChanged += OnLifeValueChanged;
-            OnLifeValueChanged(GameManager.Instance.lives);
-        }
     }
-
-    private void OnLifeValueChanged(int value) => livesText.text = $"Lives: {GameManager.Instance.lives}";
 
     private void OnSliderValueChanged(float value)
     {
@@ -88,7 +78,6 @@ public class CanvasManager : MonoBehaviour
         if (resumeBtn) resumeBtn.onClick.RemoveAllListeners();
         if (mainMenuBtn) mainMenuBtn.onClick.RemoveAllListeners();
         if (creditsBtn) creditsBtn.onClick.RemoveAllListeners();
-        if (livesText) GameManager.Instance.OnLifeValueChanged -= OnLifeValueChanged;
     }
 
     private void SetMenus(GameObject menuToActivate, GameObject menuToDeactivate)
@@ -117,11 +106,12 @@ public class CanvasManager : MonoBehaviour
 
             if (pauseMenu.activeSelf)
             {
-                SceneManager.LoadScene("PauseMenu");
+                //SceneManager.LoadScene("PauseMenu");
+                pauseMenu.SetActive(true);
             }
             else
             {
-                SceneManager.LoadScene("InGame");
+                //SceneManager.LoadScene("InGame");
             }    
         }
     }

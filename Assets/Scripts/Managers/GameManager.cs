@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance => _instance;
     public event Action<PlayerController> OnPlayerSpawned;
-    public event Action<int> OnLifeValueChanged;
+    public UnityEvent <int> OnLifeValueChanged;
+    public UnityEvent <int> OnScoreValueChanged;
 
     #region GAME PROPERTIES
     //lives
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
         get => _lives;
         set
         {
-            if (value < 0)
+            if (value <= 0)
             {
                 GameOver();
                 return;
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour
         {
             _score = value;
             Debug.Log($"{gameObject.name} score has changed to {+score}");
+
+            OnScoreValueChanged?.Invoke(_score);
         }
     }
     #endregion
@@ -93,7 +96,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
-                if (currentMenuController.CurrentState.state == MenuStates.InGame)
+                if (currentMenuController.CurrentState.state != MenuStates.Pause)
                     currentMenuController.SetActiveState(MenuStates.Pause);
                 else
                     currentMenuController.JumpBack();
@@ -108,7 +111,6 @@ public class GameManager : MonoBehaviour
 
     void Respawn()
     {
-        //todo: animation before position change ?
         _playerInstance.transform.position = currentCheckpoint.position;
     }
 

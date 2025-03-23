@@ -4,7 +4,7 @@ using UnityEngine;
 public class ProjectileBehaviour : MonoBehaviour
 {
     [SerializeField, Range(1, 20)] private float lifespan = 3.0f;
-    [SerializeField, Range(1, 20)] private int damage = 20;
+    [SerializeField, Range(1, 20)] private int damage = 1;
 
     private Rigidbody2D m_Rigidbody;
 
@@ -32,7 +32,8 @@ public class ProjectileBehaviour : MonoBehaviour
 
         if (gameObject.CompareTag("eProjectile") && collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.lives--;
+            GameManager.Instance.lives-=1;
+            Debug.Log(GameManager.Instance.lives);
             Destroy(gameObject);
         }
     

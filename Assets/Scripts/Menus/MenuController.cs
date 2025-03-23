@@ -13,7 +13,6 @@ public class MenuController : MonoBehaviour
     Dictionary<MenuStates, BaseMenu> menuDictionary = new Dictionary<MenuStates, BaseMenu>();
     Stack<MenuStates> menuStack = new Stack<MenuStates>();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (allMenus.Length <= 0) allMenus = gameObject.GetComponentsInChildren<BaseMenu>(true);
